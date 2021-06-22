@@ -434,6 +434,7 @@ body {
       .product::after {
         display: none; } }
   .product__img {
+    position: relative;
     width: 100%;
     height: auto;
     object-fit: cover;

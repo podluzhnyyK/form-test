@@ -45,3 +45,29 @@ for (const selectItem of selectItems) {
     });
 }
 
+
+// parallax effect
+window.onload = function() {
+    const parallaxBox = document.getElementById( 'product' );
+    const c1left = document.getElementById( 'product-img' ).offsetLeft;
+    const c1top = document.getElementById( 'product-img' ).offsetTop;
+
+    parallaxBox.onmousemove = function( event ) {
+        event = event || window.event;
+        const x = event.clientX - parallaxBox.offsetLeft;
+        const y = event.clientY - parallaxBox.offsetTop;
+
+        mouseParallax( 'product-img', c1left, c1top, x, y, 6 );
+    };
+};
+
+function mouseParallax( id, left, top, mouseX, mouseY, speed ) {
+    const obj = document.getElementById( id );
+    const parentObj = obj.parentNode;
+    const containerWidth = parseInt( parentObj.offsetWidth );
+    const containerHeight = parseInt( parentObj.offsetHeight );
+    obj.style.left = ( ( ( mouseX - ( parseInt( obj.offsetWidth ) /
+     2 + left ) ) / containerWidth ) * speed ) + 'px';
+    obj.style.top = ( ( ( mouseY - ( parseInt( obj.offsetHeight ) /
+     2 + top ) ) / containerHeight ) * speed ) + 'px';
+}
