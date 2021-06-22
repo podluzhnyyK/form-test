@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Base template" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>form</title>
+
+    <link rel="stylesheet" href="css/styles.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="form-wrap">
+
+      <div class="product">
+        <img class="product__img" src="img/reduslim.png" srcset="img/reduslim-x2.png 2x" width="465" height="255" alt="Reduslim" title="Reduslim">
+        <span class="product__text product__text--name">Reduslim</span>
+        <span class="product__text product__text--status">ECO</span>
+      </div>
+
+      <div class="form">
+        <div class="form__heading-wrap">
+          <h2 class="form__heading">Сделай шаг<br class="mb-hidden"> к выздоровлению</h2>
+        </div>        
+        <form class="ad-form" method="post" autocomplete="on">
+          <fieldset class="ad-form__element ad-form__element--name">
+            <label class="ad-form__label" for="name">Ваше <span class="second-color">имя</span></label>
+            <input class="ad-form__input ad-form__input--name" name="name" type="text" placeholder="Алексей" required="">
+          </fieldset>
+
+          <fieldset class="ad-form__element ad-form__element--tel">
+            <label class="ad-form__label" for="tel">Ваш <span class="second-color">телефон</span></label>
+            <input class="ad-form__input ad-form__input--tel" id="tel" name="tel" type="tel" placeholder="+7 (123) 456 78-90" required="">
+          </fieldset>          
+
+          <div class="ad-form__element ad-form__element--country">
+            <div class="select ad-form__input ad-form__input--country">
+              <div class="select__header">
+                <span class="select__current">ru <img class="select__img" src="img/ru-form.jpg" width="27" height="18" alt="ru" title="ru"></span>
+                <div class="select__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="6" viewBox="0 0 11 6" fill="none">
+                    <path d="M1.18182 1L5.18182 5L9.18182 1" stroke="#212121" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+              </div>
+            
+              <div class="select__body">
+                <div class="select__item">ru <img class="select__img" src="img/ru-form.jpg" width="27" height="18" alt="ru" title="ru"></div>
+                <div class="select__item">kz <img class="select__img" src="img/kazakhstan-form.png" width="27" height="18" alt="kz" title="kz"></div>
+                <div class="select__item">ua <img class="select__img" src="img/ukraine-form.png" width="27" height="18" alt="ua" title="ua"></div>                
+              </div>
+            </div>
+          </div>
+
+          <fieldset class="ad-form__element ad-form__element--submit">
+            <button class="btn btn__submit" type="submit">Заказать <span class="btn__submit--arrow"></span></button>            
+          </fieldset>
+        </form>
+        <div class="trust">
+          <span class="trust__text">Trusted</span>
+          <svg class="trust__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
+            <rect y="5.71429" width="12.1429" height="9.28572" rx="3" fill="#428A60"/>
+            <path d="M3.14282 3.92857C3.14282 2.31116 4.45399 1 6.07139 1C7.6888 1 8.99997 2.31117 8.99997 3.92857V6.85714H3.14282V3.92857Z" stroke="#428A60" stroke-width="2"/>
+            </svg>
+          <span class="trust__text">Secure</span>
+        </div>
+      </div>      
+    </div>
+  </div>     
+
+  <script src="js/scripts.min.js"></script>
+</body>
+</html>
