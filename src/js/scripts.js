@@ -1,7 +1,8 @@
+/* eslint-disable space-before-function-paren */
 /* eslint-disable require-jsdoc */
 /* eslint-disable no-invalid-this */
 // select
-const select = function() {
+const select = function () {
     const selectHeader = document.querySelectorAll('.select__header');
     const selectItem = document.querySelectorAll('.select__item');
 
@@ -47,27 +48,43 @@ for (const selectItem of selectItems) {
 
 
 // parallax effect
-window.onload = function() {
-    const parallaxBox = document.getElementById( 'product' );
-    const c1left = document.getElementById( 'product-img' ).offsetLeft;
-    const c1top = document.getElementById( 'product-img' ).offsetTop;
 
-    parallaxBox.onmousemove = function( event ) {
+const product = document.getElementById('product-img');
+
+window.onload = function () {
+    const parallaxBox = document.getElementById('product');
+    const c1left = document.getElementById('product-img').offsetLeft;
+    const c1top = document.getElementById('product-img').offsetTop;
+
+    parallaxBox.onmousemove = function (event) {
         event = event || window.event;
         const x = event.clientX - parallaxBox.offsetLeft;
         const y = event.clientY - parallaxBox.offsetTop;
 
-        mouseParallax( 'product-img', c1left, c1top, x, y, 6 );
+        mouseParallax('product-img', c1left, c1top, x, y, 6);
+        product.addEventListener('mousemove', startRotate);
+        product.addEventListener('mouseout', stopRotate);
     };
 };
 
-function mouseParallax( id, left, top, mouseX, mouseY, speed ) {
-    const obj = document.getElementById( id );
+function mouseParallax(id, left, top, mouseX, mouseY, speed) {
+    const obj = document.getElementById(id);
     const parentObj = obj.parentNode;
-    const containerWidth = parseInt( parentObj.offsetWidth );
-    const containerHeight = parseInt( parentObj.offsetHeight );
-    obj.style.left = ( ( ( mouseX - ( parseInt( obj.offsetWidth ) /
-     2 + left ) ) / containerWidth ) * speed ) + 'px';
-    obj.style.top = ( ( ( mouseY - ( parseInt( obj.offsetHeight ) /
-     2 + top ) ) / containerHeight ) * speed ) + 'px';
+    const containerWidth = parseInt(parentObj.offsetWidth);
+    const containerHeight = parseInt(parentObj.offsetHeight);
+    obj.style.left = (((mouseX - (parseInt(obj.offsetWidth) /
+        2 + left)) / containerWidth) * speed) + 'px';
+    obj.style.top = (((mouseY - (parseInt(obj.offsetHeight) /
+        2 + top)) / containerHeight) * speed) + 'px';
+}
+
+function startRotate(event) {
+    const halfHeight = product.offsetHeight / 4;
+    const halfWidth = product.offsetWidth / 4;
+    product.style.transform = 'rotateX(' + (event.offsetY - halfHeight) /
+        15 + 'deg) rotateY(' + (event.offsetX - halfWidth) / 15 + 'deg)';
+}
+
+function stopRotate(event) {
+    product.style.transform = 'rotate(0)';
 }
